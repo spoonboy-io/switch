@@ -85,6 +85,7 @@ func TestParseJSONForKeyValue(t *testing.T) {
 				t.Fatalf("the JSON expectation appears to be malformed: %v", err)
 			}
 
+			// run on the testcase
 			gotResult, err := ParseJSONForKeyValue(tc.key, tc.value, data, tc.root)
 			if err != nil {
 				t.Fatalf("unexpected error: %v", err)

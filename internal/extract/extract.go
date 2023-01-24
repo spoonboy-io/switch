@@ -7,13 +7,16 @@ import (
 	"regexp"
 )
 
+// Record is provides the structure for the data we compose
+// using a slice of these, in preference to a map, so that we can
+// guarantee output order matches order in the original JSON
 type Record struct {
 	Name  interface{} `json:"name"`
 	Value interface{} `json:"value"`
 }
 
-// Parses takes raw JSON document and uses regex to extract the
-// provided key and value into a new JSON document
+// ParseJSONForKeyValue takes a raw JSON document and uses regex and/or
+// unmarshalling to extract the provided key and value into a new JSON document
 func ParseJSONForKeyValue(key, value string, doc []byte, root ...string) ([]byte, error) {
 	var recs []Record
 	var data interface{}
@@ -50,6 +53,9 @@ func ParseJSONForKeyValue(key, value string, doc []byte, root ...string) ([]byte
 }
 
 func obtainRoot(data []byte, rootKey string) ([]byte, bool) {
+	// helper to extract the array which could be mounted as object key
+	// traversing the doc to the key in a unmarshaled map was much more work
+	// so we do it in the JSON data with a regex
 	regex := fmt.Sprintf(`(?mU)"%s":\s*?(\[[[:ascii:]]*\])`, rootKey)
 	//regex := fmt.Sprintf(`(?m)"%s":\s*?(\[.*])`, rootKey)
 	reg := regexp.MustCompile(regex)
@@ -65,7 +71,7 @@ func obtainRoot(data []byte, rootKey string) ([]byte, bool) {
 func walkAtRoot(data interface{}, key, value string, recs []Record) []Record {
 	// walk the array, we should able to find map[string]interface{} values
 	// we can inspect to extract the desired, key and value
-	// we can create them as name value fields in a Record and append/return
+	// we can create them as `name` and `value` fields in a Record and append/return
 	switch data.(type) {
 	case []interface{}:
 		for _, v := range data.([]interface{}) {
@@ -89,63 +95,3 @@ func walkAtRoot(data interface{}, key, value string, recs []Record) []Record {
 
 	return recs
 }
-
-/*
-
-func SumWithAssertion(payload []byte) (float64, error) {
-	var sum float64
-	var data interface{}
-
-	err := json.Unmarshal(payload, &data)
-	if err != nil {
-		return 0, err
-	}
-
-	// inspect
-	sum += walk(data)
-
-	return math.Ceil(sum*100) / 100, nil
-}
-
-// walk traverses the interface and performs the addition, it calls itself recursively for nested aggregate types
-func walk(data interface{}) float64 {
-	var sum float64
-	switch i := data.(type) {
-	case []interface{}:
-		for _, v := range data.([]interface{}) {
-			switch i := v.(type) {
-			case int:
-				sum += float64(i)
-			case float64:
-				sum += i
-			case []interface{}, map[string]interface{}:
-				r := walk(v)
-				sum += r
-			default:
-				fmt.Println("Not numeric skipping:", v, reflect.TypeOf(v))
-			}
-		}
-	case map[string]interface{}:
-		for _, v := range data.(map[string]interface{}) {
-			switch i := v.(type) {
-			case int:
-				sum += float64(i)
-			case float64:
-				sum += i
-			case []interface{}, map[string]interface{}:
-				r := walk(v)
-				sum += r
-			default:
-				fmt.Println("Not numeric skipping:", v, reflect.TypeOf(v))
-			}
-		}
-	case int:
-		sum += float64(i)
-	case float64:
-		sum += i
-	default:
-		fmt.Println("Not numeric skipping:", data, reflect.TypeOf(data))
-	}
-	return sum
-}
-*/
