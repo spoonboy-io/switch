@@ -1,11 +1,26 @@
 package internal
 
+import "errors"
+
 const (
 	// caching configuration
 	CACHE_FOLDER = "cache"
 
 	// sources config file
 	SOURCES_CONFIG = "sources.yaml"
+
+	// default TTL in cases not set (1 minute)
+	DEFAULT_TTL = 1
+)
+
+var (
+	// source validation errors
+	ERR_NO_DESCRIPTION     = errors.New("No description is set")
+	ERR_BAD_METHOD         = errors.New("method is not acceptable")
+	ERR_BAD_URL            = errors.New("url is appears to be invalid")
+	ERR_NO_BODY            = errors.New("method requires requestBody")
+	ERR_BAD_EXTRACT_CONFIG = errors.New("no extract 'name' or 'value' key set")
+	ERR_BAD_SAVE_CONFIG    = errors.New("no save 'path or 'filename' set")
 )
 
 // Sources is representation of the parsed YAML sources configuration file
