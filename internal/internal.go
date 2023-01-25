@@ -3,9 +3,6 @@ package internal
 import "errors"
 
 const (
-	// caching configuration
-	CACHE_FOLDER = "cache"
-
 	// sources config file
 	SOURCES_CONFIG = "sources.yaml"
 
@@ -30,6 +27,7 @@ type Sources []struct {
 
 // Extract represents the fields which will be extracted as name & value
 type Extract struct {
+	Root  string `yaml:"root"`
 	Name  string `yaml:"name"`
 	Value string `yaml:"value"`
 }

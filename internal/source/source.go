@@ -9,24 +9,25 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-var config internal.Sources
-
 // ReadAndParseConfig reads the contents of the YAML source config file
 // and parses it to a map of Source structs
-func ReadAndParseConfig(cfgFile string) error {
+func ReadAndParseConfig(cfgFile string) (internal.Sources, error) {
+	var config internal.Sources
 	yamlConfig, err := ioutil.ReadFile(cfgFile)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if err := yaml.Unmarshal(yamlConfig, &config); err != nil {
-		return err
+		return nil, err
 	}
 
-	return nil
+	return config, nil
 }
 
-func ValidateConfig() error {
+// ValidateConfig checks the basics are complete for each source in the YAML
+// and errors if not, also sets the default Ttl if not specified
+func ValidateConfig(config internal.Sources) error {
 	for i := range config {
 		// check description
 		if config[i].Description == "" {
