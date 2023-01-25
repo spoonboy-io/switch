@@ -18,7 +18,7 @@ the [Dujour JSON/CSV data file server](https://github.com/spoonboy-io/dujour).
 ## Why?
 
 Formulating the JavaScript for Morpheus Option List REST translation scripts can be complex, while any JSON file which presents
-as an array of `name` and value `keys`, needs no translation script whatsoever since Morpheus is able to interpret it automatically.
+as an array of `name` and `value` keys, needs no translation script whatsoever since Morpheus is able to interpret it automatically.
 
 So, Switch takes a complex JSON payload, which would require a translation script to parse in Morpheus, and creates a
 simple representation of the data needed for the option list.
@@ -166,6 +166,7 @@ To update, stop the server, replace the binary, start the server.
 - Unit tests only cover the extraction routines
 - Only manually tested with unauthenticated GET requests at this time
 - The extraction code, caters for simple arrays and objects keys which store an array
+- Will panic if TLS cert is self cert ATM
 
 ### License
 Licensed under [Mozilla Public License 2.0](LICENSE)
