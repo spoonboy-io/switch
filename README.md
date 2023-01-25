@@ -1,14 +1,6 @@
 # Switch
 
-## Preprocess JSON to `name` and `value` keys for Morpheus 
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/?style=flat-square)](https://go.dev/)
-[![Go Report Card](https://goreportcard.com/badge/github.com/spoonboy-io/switch?style=flat-square)](https://goreportcard.com/report/github.com/spoonboy-io/switch)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spoonboy-io/switch/Build?style=flat-square)](https://github.com/spoonboy-io/switch/actions/workflows/build.yml)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/spoonboy-io/switch/Unit%20Test/master?label=tests&style=flat-square)](https://github.com/spoonboy-io/switch/actions/workflows/unit_test.yml)
-
-[![GitHub Release Date](https://img.shields.io/github/release-date/spoonboy-io/switch?style=flat-square)](https://github.com/spoonboy-io/switch/releases)
-[![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/spoonboy-io/switch/latest?style=flat-square)](https://github.com/spoonboy-io/switch/commits)
-[![GitHub](https://img.shields.io/github/license/spoonboy-io/switch?label=license&style=flat-square)](LICENSE)
+### Preprocess JSON to `name` and `value` keys for Morpheus 
 
 ## About
 
