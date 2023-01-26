@@ -178,7 +178,6 @@ To update, stop the server, replace the binary, start the server.
 - Unit tests only cover the extraction routines
 - Only manually tested with unauthenticated GET requests at this time
 - The extraction code, caters for simple arrays and objects keys which store an array
-- Will panic if TLS cert is self cert ATM
 
 ### License
 Licensed under [Mozilla Public License 2.0](LICENSE)
