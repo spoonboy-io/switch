@@ -1,7 +1,6 @@
 package process
 
 import (
-	"bytes"
 	"context"
 	"crypto/md5"
 	"crypto/tls"
@@ -56,7 +55,7 @@ func CheckAndRefresh(ctx context.Context, config internal.Sources, logger *koan.
 			// make request
 			logger.Info(fmt.Sprintf("Requesting `%s` (%s)", q.Description, q.Url))
 
-			req, err := http.NewRequest(q.Method, q.Url, bytes.NewReader([]byte(q.RequestBody)))
+			req, err := http.NewRequest("GET", q.Url, nil)
 			if err != nil {
 				logger.Error("bad request", err)
 			}

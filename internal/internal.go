@@ -13,9 +13,7 @@ const (
 var (
 	// source validation errors
 	ERR_NO_DESCRIPTION     = errors.New("No description is set")
-	ERR_BAD_METHOD         = errors.New("method is not acceptable")
 	ERR_BAD_URL            = errors.New("url is appears to be invalid")
-	ERR_NO_BODY            = errors.New("method requires requestBody")
 	ERR_BAD_EXTRACT_CONFIG = errors.New("no extract 'name' or 'value' key set")
 	ERR_BAD_SAVE_CONFIG    = errors.New("no save 'path or 'filename' set")
 )
@@ -42,8 +40,6 @@ type Save struct {
 type Source struct {
 	Description string  `yaml:"description"`
 	Url         string  `yaml:"url"`
-	Method      string  `yaml:"method"`
-	RequestBody string  `yaml:"requestBody"`
 	Token       string  `yaml:"token"`
 	Extract     Extract `yaml:"extract"`
 	Ttl         int     `yaml:"ttl"`

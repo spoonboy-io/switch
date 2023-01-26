@@ -34,19 +34,9 @@ func ValidateConfig(config internal.Sources) error {
 			return internal.ERR_NO_DESCRIPTION
 		}
 
-		// check method
-		if err := isGoodMethod(config[i].Method); err != nil {
-			return err
-		}
-
 		// check url
 		if _, err := url.ParseRequestURI(config[i].Url); err != nil {
 			return internal.ERR_BAD_URL
-		}
-
-		// if method POST/PUT check request body is present
-		if err := shouldHaveRequestBody(config[i].Method, config[i].RequestBody); err != nil {
-			return err
 		}
 
 		// check extract name and  value
@@ -65,24 +55,5 @@ func ValidateConfig(config internal.Sources) error {
 		}
 	}
 
-	return nil
-}
-
-// helpers
-func isGoodMethod(method string) error {
-	switch method {
-	case "GET", "POST":
-		return nil
-	default:
-		return internal.ERR_BAD_METHOD
-	}
-}
-
-func shouldHaveRequestBody(method, requestBody string) error {
-	if method != "GET" {
-		if requestBody == "" {
-			return internal.ERR_NO_BODY
-		}
-	}
 	return nil
 }
