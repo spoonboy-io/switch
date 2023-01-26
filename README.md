@@ -39,8 +39,6 @@ Switch will look for and parse a `sources.yaml` which has the following format:
 - source:
     description: Some blog posts (array)
     url: https://jsonplaceholder.typicode.com/posts
-    method: GET
-    requestBody:
     token:
     extract:
       root:
