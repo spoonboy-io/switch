@@ -173,6 +173,17 @@ To this:
 }]
 ```
 
+Which avoids the need to use **any** translation script, which would otherwise look like this if parsing the original file:
+
+```javascript
+for (var x = 0; x < data.items.item[0].batters.batter.length; x++) {
+  results.push({
+    name: data.items.item[0].batters.batter[x].type, 
+    value: data.items.item[0].batters.batter[x].id
+  });
+}
+```
+
 ### Installation
 Grab the tar.gz or zip archive for your OS from the [releases page](https://github.com/spoonboy-io/switch/releases/latest).
 
