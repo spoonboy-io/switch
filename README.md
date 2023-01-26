@@ -151,7 +151,19 @@ A similar config, which adds a root of "batter", can parse remote JSON like this
 To this:
 
 ```json
-
+[{
+	"name": "Regular",
+	"value": "1001"
+}, {
+	"name": "Chocolate",
+	"value": "1002"
+}, {
+	"name": "Blueberry",
+	"value": "1003"
+}, {
+	"name": "Devil's Food",
+	"value": "1004"
+}]
 ```
 
 ### Installation

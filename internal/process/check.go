@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"crypto/md5"
+	"crypto/tls"
 	"fmt"
 	"io"
 	"net/http"
@@ -49,10 +50,12 @@ func CheckAndRefresh(ctx context.Context, config internal.Sources, logger *koan.
 	var wg sync.WaitGroup
 
 	for _, q := range queue {
+
 		wg.Add(1)
-		go func() {
+		go func(q internal.Source) {
 			// make request
 			logger.Info(fmt.Sprintf("Requesting `%s` (%s)", q.Description, q.Url))
+
 			req, err := http.NewRequest(q.Method, q.Url, bytes.NewReader([]byte(q.RequestBody)))
 			if err != nil {
 				logger.Error("bad request", err)
@@ -65,7 +68,13 @@ func CheckAndRefresh(ctx context.Context, config internal.Sources, logger *koan.
 				req.Header.Add("Authorization", q.Token)
 			}
 
-			res, err := http.DefaultClient.Do(req)
+			// allow insecure certs
+			tr := &http.Transport{
+				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			}
+			client := &http.Client{Transport: tr}
+
+			res, err := client.Do(req)
 			if err != nil {
 				logger.Error("bad request", err)
 			}
@@ -102,7 +111,7 @@ func CheckAndRefresh(ctx context.Context, config internal.Sources, logger *koan.
 			}
 
 			wg.Done()
-		}()
+		}(q.Source)
 
 	}
 
