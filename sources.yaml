@@ -1,0 +1,25 @@
+---
+- source:
+    description: Some blog posts (array)
+    url: https://jsonplaceholder.typicode.com/posts
+    token:
+    extract:
+        name: title
+        value: id
+    ttl: 5
+    save:
+        folder: test
+        filename: test.json
+
+- source:
+      description: Get Donut batters (object)
+      url: https://morpheus-2:18651/donut-raw
+      token:
+      extract:
+          root: batter
+          name: type
+          value: id
+      ttl: 5
+      save:
+          folder: test
+          filename: donut.json

@@ -41,7 +41,7 @@ You can find the [latest software here](https://github.com/spoonboy-io/switch/re
 
 ## Usage
 
-Switch will look for and parse a `sources.yaml` which has the following format:
+Switch will look for and parse a [sources.yaml file](https://github.com/spoonboy-io/switch/blob/master/sources.yaml) which has the following format:
 
 ```yaml
 ---
@@ -53,7 +53,7 @@ Switch will look for and parse a `sources.yaml` which has the following format:
       root:
       name: title
       value: id
-    ttl: 5
+    ttl: 5 # minutes
     save:
       folder: test
       filename: test.json
@@ -176,9 +176,17 @@ To this:
 ### Installation
 Grab the tar.gz or zip archive for your OS from the [releases page](https://github.com/spoonboy-io/switch/releases/latest).
 
-Unpack it to the target host, and then start the server!
+Unpack it to the target host, and then start the application.
 
-To update, stop the server, replace the binary, start the server.
+```
+./switch
+```
+
+Or with nohup..
+
+```
+nohup ./switch &
+```
 
 ### TODO
 
