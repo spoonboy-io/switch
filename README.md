@@ -48,7 +48,7 @@ Switch will look for and parse a [sources.yaml file](https://github.com/spoonboy
 - source:
     description: Some blog posts (array)
     url: https://jsonplaceholder.typicode.com/posts
-    token:
+    token: Bearer xxxxx-xxx-xxx
     extract:
       root:
       name: title
