@@ -56,7 +56,7 @@ func obtainRoot(data []byte, rootKey string) ([]byte, bool) {
 	// helper to extract the array which could be mounted as object key
 	// traversing the doc to the key in a unmarshaled map was much more work
 	// so we do it in the JSON data with a regex
-	regex := fmt.Sprintf(`(?mU)"%s":\s*?(\[[[:ascii:]]*\])`, rootKey)
+	regex := fmt.Sprintf(`(?m)"%s":\s*?(\[[[:ascii:]]*\])`, rootKey)
 	//regex := fmt.Sprintf(`(?m)"%s":\s*?(\[.*])`, rootKey)
 	reg := regexp.MustCompile(regex)
 	matches := reg.FindAllStringSubmatch(string(data), 1)

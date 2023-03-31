@@ -66,6 +66,14 @@ func TestParseJSONForKeyValue(t *testing.T) {
 			"id",
 			`[{"name":"Regular","value":"1001"},{"name":"Chocolate","value":"1002"},{"name":"Blueberry","value":"1003"},{"name":"Devil's Food","value":"1004"}]`,
 		},
+		{
+			"issue #1 - picking out groups, key name, value id - was giving unexpected end of JSON input)",
+			"groups.json",
+			"groups",
+			"name",
+			"id",
+			`[{"name":"DevTeam","value":6},{"name":"NCL","value":363},{"name":"Pied Piper - VDI Desktops","value":7},{"name":"Production","value":8},{"name":"Project A","value":9},{"name":"VMware Prod","value":1}]`,
+		},
 	}
 
 	for _, tc := range testCases {

@@ -1,0 +1,207 @@
+{
+  "groups": [
+    {
+      "id": 6,
+      "uuid": "c92e5654-d55d-4275-8f5c-79850868e7f3",
+      "name": "DevTeam",
+      "code": "Dev",
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {},
+      "dateCreated": "2023-03-07T03:48:14Z",
+      "lastUpdated": "2023-03-17T13:20:26Z",
+      "zones": [
+        {
+          "id": 5,
+          "name": "Azure Morph"
+        }
+      ],
+      "stats": {
+        "instanceCounts": {
+          "all": 0
+        },
+        "serverCounts": {
+          "all": 0,
+          "host": 0,
+          "hypervisor": 0,
+          "containerHost": 0,
+          "vm": 0,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 0
+    },
+    {
+      "id": 363,
+      "uuid": "8d338d85-bb40-4778-97e0-0ba81433cfbf",
+      "name": "NCL",
+      "code": "nclg1",
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {
+        "serviceRegistryId": "",
+        "configCmdbDiscovery": false
+      },
+      "dateCreated": "2023-03-08T15:35:17Z",
+      "lastUpdated": "2023-03-08T15:35:48Z",
+      "zones": [
+        {
+          "id": 4,
+          "name": "NCL"
+        }
+      ],
+      "stats": {
+        "instanceCounts": {
+          "all": 0
+        },
+        "serverCounts": {
+          "all": 0,
+          "host": 0,
+          "hypervisor": 0,
+          "containerHost": 0,
+          "vm": 0,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 0
+    },
+    {
+      "id": 7,
+      "uuid": "943b92db-d2aa-4010-b206-c846f3b8405e",
+      "name": "Pied Piper - VDI Desktops",
+      "code": "vdi",
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {},
+      "dateCreated": "2023-03-07T03:48:14Z",
+      "lastUpdated": "2023-03-07T03:48:14Z",
+      "zones": [],
+      "stats": {
+        "instanceCounts": {
+          "all": 0
+        },
+        "serverCounts": {
+          "all": 0,
+          "host": 0,
+          "hypervisor": 0,
+          "containerHost": 0,
+          "vm": 0,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 0
+    },
+    {
+      "id": 8,
+      "uuid": "bddf3005-61fa-4a00-9fc6-420583648877",
+      "name": "Production",
+      "code": null,
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {},
+      "dateCreated": "2023-03-07T03:48:14Z",
+      "lastUpdated": "2023-03-23T15:08:40Z",
+      "zones": [
+        {
+          "id": 6,
+          "name": "AWS Environment Us-east2"
+        }
+      ],
+      "stats": {
+        "instanceCounts": {
+          "all": 4
+        },
+        "serverCounts": {
+          "all": 0,
+          "host": 0,
+          "hypervisor": 0,
+          "containerHost": 0,
+          "vm": 4,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 0
+    },
+    {
+      "id": 9,
+      "uuid": "4944d8df-4303-4711-8462-0061d0bb3803",
+      "name": "Project A",
+      "code": null,
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {},
+      "dateCreated": "2023-03-07T03:48:14Z",
+      "lastUpdated": "2023-03-07T03:48:14Z",
+      "zones": [],
+      "stats": {
+        "instanceCounts": {
+          "all": 0
+        },
+        "serverCounts": {
+          "all": 0,
+          "host": 0,
+          "hypervisor": 0,
+          "containerHost": 0,
+          "vm": 0,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 0
+    },
+    {
+      "id": 1,
+      "uuid": "950110cc-d461-4000-b7c8-b272070e554d",
+      "name": "VMware Prod",
+      "code": null,
+      "location": null,
+      "accountId": 1,
+      "active": true,
+      "config": {
+        "serviceRegistryId": ""
+      },
+      "dateCreated": "2023-03-06T20:17:52Z",
+      "lastUpdated": "2023-03-08T00:24:00Z",
+      "zones": [
+        {
+          "id": 1,
+          "name": "Dev"
+        },
+        {
+          "id": 2,
+          "name": "XaaS"
+        }
+      ],
+      "stats": {
+        "instanceCounts": {
+          "all": 0
+        },
+        "serverCounts": {
+          "all": 1,
+          "host": 1,
+          "hypervisor": 1,
+          "containerHost": 0,
+          "vm": 0,
+          "baremetal": 0,
+          "unmanaged": 0
+        }
+      },
+      "serverCount": 1
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "max": 25,
+    "size": 6,
+    "total": 6
+  }
+}
