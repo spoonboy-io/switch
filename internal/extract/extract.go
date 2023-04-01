@@ -65,6 +65,33 @@ func obtainRoot(data []byte, rootKey string) ([]byte, bool) {
 		// not found
 		return []byte{}, false
 	}
+
+	// check and employfall back
+	var check interface{}
+	if err := json.Unmarshal([]byte(matches[0][1]), &check); err != nil {
+		return obtainRootFallback(data, rootKey)
+	}
+
+	return []byte(matches[0][1]), true
+}
+
+// temp fix for issue2 (https://github.com/spoonboy-io/switch/issues/2)
+// the regex is the only difference, just very simple to drop this
+// in as a fallback for now, which use if the bytes are unparsable
+// after first
+func obtainRootFallback(data []byte, rootKey string) ([]byte, bool) {
+	// helper to extract the array which could be mounted as object key
+	// traversing the doc to the key in a unmarshaled map was much more work
+	// so we do it in the JSON data with a regex
+	regex := fmt.Sprintf(`(?mU)"%s":\s*?(\[[[:ascii:]]*\])`, rootKey)
+	//regex := fmt.Sprintf(`(?m)"%s":\s*?(\[.*])`, rootKey)
+	reg := regexp.MustCompile(regex)
+	matches := reg.FindAllStringSubmatch(string(data), 1)
+
+	if len(matches) == 0 {
+		// not found
+		return []byte{}, false
+	}
 	return []byte(matches[0][1]), true
 }
 
