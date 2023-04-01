@@ -192,6 +192,12 @@ Unpack it to the target host, and then start the application.
 ```
 ./switch
 ```
+Or with debug output, which will show retrieved source, parsed output and heap allocated, in addition to normal log
+and error reporting..
+
+```
+./switch -debug
+```
 
 Or with nohup..
 
